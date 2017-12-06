@@ -9,13 +9,17 @@ namespace TriviaMaze
 	class triviaRoom
 	{
 		private Boolean north, south, east, west;
-
+		private int row, col;
 
 
 		public Boolean North { get { return north; } set { north = value; } }
 		public Boolean South { get { return south; } set { south = value; } }
 		public Boolean East { get { return east; } set { east = value; } }
 		public Boolean West { get { return west; } set { west = value; } }
+		public int Row { get { return row; } set { row = value; } }
+		public int Column {  get { return col; } set { col = value; } }
+
+
 
 		public triviaRoom()
 		{
