@@ -9,7 +9,7 @@ namespace TriviaMaze
 	class QuestionFactory
 	{
 		
-		private Question[] bank = new Question[40];
+		private Question[] bank = new Question[50];
 		private int num;
 		public QuestionFactory()
 		{
@@ -26,6 +26,12 @@ namespace TriviaMaze
 			if (num >= 40)
 				throw new IndexOutOfRangeException("Ran out of questions!");
 			return bank[num++];
+		}
+
+
+		public void reset()
+		{
+			num = 0;
 		}
 
 	}

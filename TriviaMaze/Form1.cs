@@ -39,36 +39,115 @@ namespace TriviaMaze
 		private void createMaze()
 		{
 			myMaze = new triviaRoom[5][];
-			for(int i = 0; i < 5; i++)
+			for (int i = 0; i < 5; i++)
 			{
 				myMaze[i] = new triviaRoom[5];
 			}
-			for(int row = 0; row < 5; row++)
+			for (int row = 0; row < 5; row++)
 			{
-				for(int col = 0; col < 5; col++)
+				for (int col = 0; col < 5; col++)
 				{
 					triviaRoom temp = new triviaRoom();
-					if(row == 0)
+					if (row == 0)
 					{
 						temp.North = false;
 					}
-					else if(row == 4)
+					else if (row == 4)
 					{
 						temp.South = false;
 					}
-
-					if(col == 0)
+					if (col == 0)
 					{
 						temp.West = false;
 					}
-					else if(col == 4)
+					else if (col == 4)
 					{
 						temp.East = false;
 					}
+					temp.Row = row;
+					temp.Column = col;
 					myMaze[row][col] = temp;
 				}
 			}
+
+			/*
+			 * Setting up Questions for the squares, this is the logic to get shared questions at each of the borders.
+			 * North and West will grab previous questions, South and East will generate new questions
+			 */ 
+
+			for (int row = 0; row < 5; row++)
+			{
+				for (int col = 0; col < 5; col++)
+				{
+					if(row == 0)
+					{
+						if(col == 0)//Top left corner
+						{
+							myMaze[row][col].QEast = qFac.GetQuestion();
+							myMaze[row][col].QSouth = qFac.GetQuestion();
+						}
+						else if(col == 4)//top right corner
+						{
+							myMaze[row][col].QWest = myMaze[row][col-1].QEast;
+							myMaze[row][col].QSouth = qFac.GetQuestion();
+						}
+						else//top row
+						{
+							myMaze[row][col].QEast = qFac.GetQuestion();
+							myMaze[row][col].QWest = myMaze[row][col - 1].QEast;
+							myMaze[row][col].QSouth = qFac.GetQuestion();
+						}
+					}
+					else if(row == 4)
+					{
+						if (col == 0)//Bottom left corner
+						{
+							myMaze[row][col].QEast = qFac.GetQuestion();
+							myMaze[row][col].QNorth = myMaze[row-1][col].QSouth;
+						}
+						else if (col == 4)//Bottom right corner
+						{
+							myMaze[row][col].QWest = myMaze[row][col - 1].QEast;
+							myMaze[row][col].QNorth = myMaze[row - 1][col].QSouth;
+						}
+						else//Bottom row
+						{
+							myMaze[row][col].QEast = qFac.GetQuestion();
+							myMaze[row][col].QWest = myMaze[row][col - 1].QEast;
+							myMaze[row][col].QNorth = myMaze[row - 1][col].QSouth;
+						}
+					}
+					else if(col == 0)//Left side
+					{
+						myMaze[row][col].QEast = qFac.GetQuestion();
+						myMaze[row][col].QNorth = myMaze[row - 1][col].QSouth;
+						myMaze[row][col].QSouth = qFac.GetQuestion();
+					}
+					else if(col == 4)//Right side
+					{
+						myMaze[row][col].QNorth = myMaze[row - 1][col].QSouth;
+						myMaze[row][col].QSouth = qFac.GetQuestion();
+						myMaze[row][col].QWest = myMaze[row][col - 1].QEast;
+					}
+					else//Somewhere in the middle then
+					{
+						myMaze[row][col].QNorth = myMaze[row - 1][col].QSouth;
+						myMaze[row][col].QSouth = qFac.GetQuestion();
+						myMaze[row][col].QEast = qFac.GetQuestion();
+						myMaze[row][col].QWest = myMaze[row][col - 1].QEast;
+					}
+
+
+				}
+
+			}
+
+
+
+
 		}
+
+
 
 		private void setUpBoxes()
 		{
@@ -268,10 +347,37 @@ namespace TriviaMaze
 		{
 			drawBorders();
 			updatePlayer(0,0);
+			setValidMoves();
+		}
+
+		private void setValidMoves()
+		{
+			triviaRoom curRoom = myMaze[thePlayer.Row][thePlayer.Column];
+
+			if (curRoom.North)
+				btnUp.Enabled = true;
+			else
+				btnUp.Enabled = false;
+
+			if (curRoom.South)
+				btnDown.Enabled = true;
+			else
+				btnDown.Enabled = false;
+
+			if (curRoom.East)
+				btnRight.Enabled = true;
+			else
+				btnRight.Enabled = false;
+
+			if (curRoom.West)
+				btnLeft.Enabled = true;
+			else
+				btnLeft.Enabled = false;
 		}
 
 		private void btnReset_Click(object sender, EventArgs e)
 		{
+			qFac.reset();
 			foreach(PictureBox[] pa in myBoxes)
 			{
 				foreach(PictureBox p in pa)
@@ -284,7 +390,10 @@ namespace TriviaMaze
 			thePlayer.Row = 0;
 		}
 
-	
+		private void txtAlert_TextChanged(object sender, EventArgs e)
+		{
+
+		}
 	}
 
 
