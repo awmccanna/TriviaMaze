@@ -22,6 +22,10 @@ namespace TriviaMaze
 		private Player thePlayer;
 		private Pen closedPen = new Pen(Color.Red, 10);
 		private Pen openPen = new Pen(Color.Green, 10);
+		private static QuestionFactory qFac = new QuestionFactory();
+
+
+
 		public Main()
 		{
 			thePlayer = new Player();
@@ -225,8 +229,40 @@ namespace TriviaMaze
 
 		private void btnUp_Click(object sender, EventArgs e)
 		{
-			
+			movePlayerUp();
 		}
+		private void btnDown_Click(object sender, EventArgs e)
+		{
+			movePlayerDown();
+		}
+		private void btnRight_Click(object sender, EventArgs e)
+		{
+			movePlayerRight();
+		}
+		private void btnLeft_Click(object sender, EventArgs e)
+		{
+			movePlayerLeft();
+		}
+
+		private void movePlayerUp()
+		{
+			throw new NotImplementedException();
+		}
+		private void movePlayerDown()
+		{
+			throw new NotImplementedException();
+		}
+		private void movePlayerRight()
+		{
+			throw new NotImplementedException();
+		}
+		private void movePlayerLeft()
+		{
+			throw new NotImplementedException();
+		}
+
+
+
 
 		private void btnStart_Click(object sender, EventArgs e)
 		{
@@ -247,6 +283,8 @@ namespace TriviaMaze
 			thePlayer.Column = 0;
 			thePlayer.Row = 0;
 		}
+
+	
 	}
 
 

@@ -8,27 +8,38 @@ namespace TriviaMaze
 {
 	class triviaRoom
 	{
-		private Boolean north, south, east, west;
+		private bool north, south, east, west;
 		private int row, col;
+		private Question qNorth, qSouth, qEast, qWest;
 
 
-		public Boolean North { get { return north; } set { north = value; } }
-		public Boolean South { get { return south; } set { south = value; } }
-		public Boolean East { get { return east; } set { east = value; } }
-		public Boolean West { get { return west; } set { west = value; } }
-		public int Row { get { return row; } set { row = value; } }
-		public int Column {  get { return col; } set { col = value; } }
-
-
+		public int Row { get => row; set => row = value; }
+		public int Column { get => col; set => col = value; }
+		public bool North { get => north; set => north = value; }
+		public bool South { get => south; set => south = value; }
+		public bool East { get => east; set => east = value; }
+		public bool West { get => west; set => west = value; }
+		internal Question QNorth { get => qNorth; set => qNorth = value; }
+		internal Question QSouth { get => qSouth; set => qSouth = value; }
+		internal Question QEast { get => qEast; set => qEast = value; }
+		internal Question QWest { get => qWest; set => qWest = value; }
 
 		public triviaRoom()
 		{
-			north = true;
-			south = true;
-			east = true;
-			west = true;
+			North = true;
+			South = true;
+			East = true;
+			West = true;
+			Row = 0;
+			Column = 0;
+			
 		}
 		
+
+
+
+
+
 
 
 	}

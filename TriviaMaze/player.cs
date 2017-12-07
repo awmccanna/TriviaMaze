@@ -9,15 +9,15 @@ namespace TriviaMaze
 	class Player
 	{
 		private int row, col;
-		public int Row { get { return row; } set { row = value; } }
-		public int Column { get { return col; } set { col = value; } }
+
 
 		public Player()
 		{
-			row = 0;
-			col = 0;
+			Row = 0;
+			Column = 0;
 		}
 
-
+		public int Row { get => row; set => row = value; }
+		public int Column { get => col; set => col = value; }
 	}
 }

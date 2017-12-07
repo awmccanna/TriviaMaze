@@ -403,6 +403,7 @@
 			this.btnRight.TabIndex = 6;
 			this.btnRight.Text = "Right";
 			this.btnRight.UseVisualStyleBackColor = true;
+			this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
 			// 
 			// btnDown
 			// 
@@ -412,6 +413,7 @@
 			this.btnDown.TabIndex = 7;
 			this.btnDown.Text = "Down";
 			this.btnDown.UseVisualStyleBackColor = true;
+			this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
 			// 
 			// btnLeft
 			// 
@@ -421,6 +423,7 @@
 			this.btnLeft.TabIndex = 8;
 			this.btnLeft.Text = "Left";
 			this.btnLeft.UseVisualStyleBackColor = true;
+			this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
 			// 
 			// Main
 			// 
