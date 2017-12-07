@@ -77,14 +77,11 @@
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.directionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.txtQuestion = new System.Windows.Forms.TextBox();
-			this.txtAnswerA = new System.Windows.Forms.TextBox();
-			this.txtAnswerB = new System.Windows.Forms.TextBox();
-			this.txtAnswerC = new System.Windows.Forms.TextBox();
-			this.txtAnswerD = new System.Windows.Forms.TextBox();
 			this.btnA = new System.Windows.Forms.RadioButton();
-			this.radioButton1 = new System.Windows.Forms.RadioButton();
-			this.radioButton2 = new System.Windows.Forms.RadioButton();
-			this.radioButton3 = new System.Windows.Forms.RadioButton();
+			this.btnB = new System.Windows.Forms.RadioButton();
+			this.btnC = new System.Windows.Forms.RadioButton();
+			this.btnD = new System.Windows.Forms.RadioButton();
+			this.btnSubmit = new System.Windows.Forms.Button();
 			this.menuStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.box43)).BeginInit();
@@ -143,6 +140,7 @@
 			this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
 			this.newGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.newGameToolStripMenuItem.Text = "&New Game";
+			this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -388,18 +386,15 @@
 			// 
 			// panel2
 			// 
-			this.panel2.Controls.Add(this.radioButton3);
-			this.panel2.Controls.Add(this.radioButton2);
-			this.panel2.Controls.Add(this.radioButton1);
+			this.panel2.Controls.Add(this.btnSubmit);
+			this.panel2.Controls.Add(this.btnD);
+			this.panel2.Controls.Add(this.btnC);
+			this.panel2.Controls.Add(this.btnB);
 			this.panel2.Controls.Add(this.btnA);
-			this.panel2.Controls.Add(this.txtAnswerD);
-			this.panel2.Controls.Add(this.txtAnswerC);
-			this.panel2.Controls.Add(this.txtAnswerB);
-			this.panel2.Controls.Add(this.txtAnswerA);
 			this.panel2.Controls.Add(this.txtQuestion);
 			this.panel2.Location = new System.Drawing.Point(849, 52);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(314, 357);
+			this.panel2.Size = new System.Drawing.Size(314, 315);
 			this.panel2.TabIndex = 2;
 			// 
 			// btnStart
@@ -471,6 +466,7 @@
 			this.txtAlert.BackColor = System.Drawing.SystemColors.Control;
 			this.txtAlert.Location = new System.Drawing.Point(918, 563);
 			this.txtAlert.Name = "txtAlert";
+			this.txtAlert.ReadOnly = true;
 			this.txtAlert.Size = new System.Drawing.Size(162, 20);
 			this.txtAlert.TabIndex = 9;
 			this.txtAlert.TextChanged += new System.EventHandler(this.txtAlert_TextChanged);
@@ -519,114 +515,95 @@
 			this.saveGameToolStripMenuItem.Name = "saveGameToolStripMenuItem";
 			this.saveGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.saveGameToolStripMenuItem.Text = "&Save Game";
+			this.saveGameToolStripMenuItem.Click += new System.EventHandler(this.saveGameToolStripMenuItem_Click);
 			// 
 			// loadGameToolStripMenuItem
 			// 
 			this.loadGameToolStripMenuItem.Name = "loadGameToolStripMenuItem";
 			this.loadGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.loadGameToolStripMenuItem.Text = "&Load Game";
+			this.loadGameToolStripMenuItem.Click += new System.EventHandler(this.loadGameToolStripMenuItem_Click);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
 			this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.exitToolStripMenuItem.Text = "E&xit";
+			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.aboutToolStripMenuItem.Text = "&About";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
 			// directionsToolStripMenuItem
 			// 
 			this.directionsToolStripMenuItem.Name = "directionsToolStripMenuItem";
 			this.directionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.directionsToolStripMenuItem.Text = "&Directions";
+			this.directionsToolStripMenuItem.Click += new System.EventHandler(this.directionsToolStripMenuItem_Click);
 			// 
 			// txtQuestion
 			// 
 			this.txtQuestion.BackColor = System.Drawing.SystemColors.Control;
 			this.txtQuestion.Location = new System.Drawing.Point(4, 4);
 			this.txtQuestion.Name = "txtQuestion";
+			this.txtQuestion.ReadOnly = true;
 			this.txtQuestion.Size = new System.Drawing.Size(307, 20);
 			this.txtQuestion.TabIndex = 0;
-			// 
-			// txtAnswerA
-			// 
-			this.txtAnswerA.BackColor = System.Drawing.SystemColors.Control;
-			this.txtAnswerA.Location = new System.Drawing.Point(42, 55);
-			this.txtAnswerA.Name = "txtAnswerA";
-			this.txtAnswerA.Size = new System.Drawing.Size(269, 20);
-			this.txtAnswerA.TabIndex = 6;
-			// 
-			// txtAnswerB
-			// 
-			this.txtAnswerB.BackColor = System.Drawing.SystemColors.Control;
-			this.txtAnswerB.Location = new System.Drawing.Point(42, 109);
-			this.txtAnswerB.Name = "txtAnswerB";
-			this.txtAnswerB.Size = new System.Drawing.Size(268, 20);
-			this.txtAnswerB.TabIndex = 7;
-			// 
-			// txtAnswerC
-			// 
-			this.txtAnswerC.BackColor = System.Drawing.SystemColors.Control;
-			this.txtAnswerC.Location = new System.Drawing.Point(42, 161);
-			this.txtAnswerC.Name = "txtAnswerC";
-			this.txtAnswerC.Size = new System.Drawing.Size(267, 20);
-			this.txtAnswerC.TabIndex = 8;
-			// 
-			// txtAnswerD
-			// 
-			this.txtAnswerD.BackColor = System.Drawing.SystemColors.Control;
-			this.txtAnswerD.Location = new System.Drawing.Point(42, 215);
-			this.txtAnswerD.Name = "txtAnswerD";
-			this.txtAnswerD.Size = new System.Drawing.Size(267, 20);
-			this.txtAnswerD.TabIndex = 9;
 			// 
 			// btnA
 			// 
 			this.btnA.AutoSize = true;
 			this.btnA.Location = new System.Drawing.Point(4, 58);
 			this.btnA.Name = "btnA";
-			this.btnA.Size = new System.Drawing.Size(32, 17);
+			this.btnA.Size = new System.Drawing.Size(14, 13);
 			this.btnA.TabIndex = 10;
 			this.btnA.TabStop = true;
-			this.btnA.Text = "A";
 			this.btnA.UseVisualStyleBackColor = true;
 			// 
-			// radioButton1
+			// btnB
 			// 
-			this.radioButton1.AutoSize = true;
-			this.radioButton1.Location = new System.Drawing.Point(4, 112);
-			this.radioButton1.Name = "radioButton1";
-			this.radioButton1.Size = new System.Drawing.Size(32, 17);
-			this.radioButton1.TabIndex = 11;
-			this.radioButton1.TabStop = true;
-			this.radioButton1.Text = "B";
-			this.radioButton1.UseVisualStyleBackColor = true;
+			this.btnB.AutoSize = true;
+			this.btnB.Location = new System.Drawing.Point(4, 112);
+			this.btnB.Name = "btnB";
+			this.btnB.Size = new System.Drawing.Size(14, 13);
+			this.btnB.TabIndex = 11;
+			this.btnB.TabStop = true;
+			this.btnB.UseVisualStyleBackColor = true;
 			// 
-			// radioButton2
+			// btnC
 			// 
-			this.radioButton2.AutoSize = true;
-			this.radioButton2.Location = new System.Drawing.Point(4, 161);
-			this.radioButton2.Name = "radioButton2";
-			this.radioButton2.Size = new System.Drawing.Size(32, 17);
-			this.radioButton2.TabIndex = 12;
-			this.radioButton2.TabStop = true;
-			this.radioButton2.Text = "C";
-			this.radioButton2.UseVisualStyleBackColor = true;
+			this.btnC.AutoSize = true;
+			this.btnC.Location = new System.Drawing.Point(4, 161);
+			this.btnC.Name = "btnC";
+			this.btnC.Size = new System.Drawing.Size(14, 13);
+			this.btnC.TabIndex = 12;
+			this.btnC.TabStop = true;
+			this.btnC.UseVisualStyleBackColor = true;
 			// 
-			// radioButton3
+			// btnD
 			// 
-			this.radioButton3.AutoSize = true;
-			this.radioButton3.Location = new System.Drawing.Point(4, 215);
-			this.radioButton3.Name = "radioButton3";
-			this.radioButton3.Size = new System.Drawing.Size(33, 17);
-			this.radioButton3.TabIndex = 13;
-			this.radioButton3.TabStop = true;
-			this.radioButton3.Text = "D";
-			this.radioButton3.UseVisualStyleBackColor = true;
+			this.btnD.AutoSize = true;
+			this.btnD.Location = new System.Drawing.Point(4, 215);
+			this.btnD.Name = "btnD";
+			this.btnD.Size = new System.Drawing.Size(14, 13);
+			this.btnD.TabIndex = 13;
+			this.btnD.TabStop = true;
+			this.btnD.UseVisualStyleBackColor = true;
+			// 
+			// btnSubmit
+			// 
+			this.btnSubmit.Enabled = false;
+			this.btnSubmit.Location = new System.Drawing.Point(209, 289);
+			this.btnSubmit.Name = "btnSubmit";
+			this.btnSubmit.Size = new System.Drawing.Size(100, 23);
+			this.btnSubmit.TabIndex = 14;
+			this.btnSubmit.Text = "Submit Answer";
+			this.btnSubmit.UseVisualStyleBackColor = true;
+			this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
 			// 
 			// Main
 			// 
@@ -733,15 +710,12 @@
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem directionsToolStripMenuItem;
-		private System.Windows.Forms.RadioButton radioButton3;
-		private System.Windows.Forms.RadioButton radioButton2;
-		private System.Windows.Forms.RadioButton radioButton1;
+		private System.Windows.Forms.RadioButton btnD;
+		private System.Windows.Forms.RadioButton btnC;
+		private System.Windows.Forms.RadioButton btnB;
 		private System.Windows.Forms.RadioButton btnA;
-		private System.Windows.Forms.TextBox txtAnswerD;
-		private System.Windows.Forms.TextBox txtAnswerC;
-		private System.Windows.Forms.TextBox txtAnswerB;
-		private System.Windows.Forms.TextBox txtAnswerA;
 		private System.Windows.Forms.TextBox txtQuestion;
+		private System.Windows.Forms.Button btnSubmit;
 	}
 }
 
